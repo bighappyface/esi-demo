@@ -14,6 +14,8 @@ sudo chown -R vagrant:vagrant /etc/varnish
 
 # Copy VCL
 cp /vagrant/default.vcl /etc/varnish/default.vcl
+mkdir -p /etc/varnish/test
+cp /vagrant/test/response-cache.vtc /etc/varnish/test/response-cache.vtc
 
 # Enable Varnish at boot
 chkconfig varnish on
