@@ -28,7 +28,8 @@ vagrant ssh edge
 
 ```sh
 # from within "edge" VM
-varnishtest /etc/varnish/test/response-cache.vtc
+cd /vagrant
+varnishtest response-cache.vtc
 ```
 
 ## More reading
