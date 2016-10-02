@@ -11,9 +11,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "web" do |web|
     web.vm.provision "shell", path: "provision-web.sh"
-    web.vm.provision "file", source: "index.php", destination: "/var/www/html/index.php"
-    web.vm.provision "file", source: "bootstrap.min.css", destination: "/var/www/html/bootstrap.min.css"
-    web.vm.provision "file", source: "catfacts.php", destination: "/var/www/html/catfacts.php"
     web.vm.network "private_network", ip: "192.168.50.4"
     web.vm.network :forwarded_port, host: 8080, guest: 80
   end

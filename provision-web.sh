@@ -3,8 +3,9 @@
 # Install Apache and PHP
 sudo yum install httpd php -y
 
-# Set permissions
-sudo chown -R vagrant:vagrant /var/www/html
+# Link /var/www/html to mounted directory
+sudo rm -rf /var/www/html
+sudo ln -s /vagrant /var/www/html
 
 # Enable Apache at boot
 chkconfig httpd on
