@@ -17,7 +17,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "edge" do |edge|
     edge.vm.provision "file", source: "default.vcl", destination: "/vagrant/default.vcl"
-    edge.vm.provision "file", source: "test/response-cache.vtc", destination: "/vagrant/test/response-cache.vtc"
     edge.vm.provision "shell", path: "provision-edge.sh"
     edge.vm.network :forwarded_port, host: 8081, guest: 6081
   end
