@@ -21,10 +21,37 @@ vagrant up
 
 ```sh
 vagrant ssh web
+# or
 vagrant ssh edge
 ```
 
 ## varnishtest example
+
+```sh
+# from within "edge" VM
+cd /vagrant
+varnishtest response-cache.vtc
+```
+
+## VCL editing
+
+When the edge VM is provisioned the `default.vcl` file is copied to `/etc/varnish` to replace the default VCL.
+
+The `default.vcl` file includes `/vagrant/actual.vcl` which is the VCL file containing the _actual_ VCL code.
+
+You can make adjustments to `actual.vcl` on your workstation and then reload them from within edge VM as follows:
+
+```sh
+# from within "edge" VM
+
+# live reload
+sudo service varnish reload
+
+# or
+
+# hard restart
+sudo service varnish restart
+```
 
 ```sh
 # from within "edge" VM
